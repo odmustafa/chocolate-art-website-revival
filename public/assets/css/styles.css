@@ -1,0 +1,223 @@
+/* Chocolate & Art Show — base styles */
+:root {
+  --bg-dark: #0d0d0d;
+  --bg-alt: #1a1a1a;
+  --text: #f5f5f5;
+  --muted: #c7c7c7;
+  --accent: #d4a373;
+  /* warm cocoa/gold accent */
+  --link: #e6b17e;
+  --footer-link: #fac553;
+  /* gold used in original footer */
+  --max-w: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Montserrat, Lato, Arial, sans-serif;
+  background: var(--bg-dark) url('https://web.archive.org/web/20230527133513im_/https://chocolateandartshow.com/wp-content/themes/chocolate-arts/images/back.jpg') center/cover fixed no-repeat;
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.site-header {
+  background: rgba(0, 0, 0, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.brand img {
+  height: 40px;
+  width: auto;
+}
+
+.brand .title {
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.nav a {
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.nav a:focus {
+  outline: 2px dashed var(--accent);
+  outline-offset: 2px;
+}
+
+/* Carousel (Flickity) */
+.carousel {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.main-carousel {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.carousel-cell {
+  width: 100%;
+  min-width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.main-carousel .flickity-viewport {
+  height: 50vh;
+}
+
+.carousel-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Below carousel text section to reflect original layout */
+.home-intro {
+  text-align: center;
+  padding: 2rem 1rem;
+  min-height: 50vh;
+  /* occupy remaining half of viewport height below carousel */
+  display: flex;
+  align-items: center;
+}
+
+.home-intro h1 {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.home-intro p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Main sections */
+.main {
+  padding: 2rem 0 3rem;
+  background: rgba(0, 0, 0, 0.4);
+  flex: 1 0 auto;
+  /* allow footer to stick to the bottom when content is short */
+}
+
+.section {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section h2 {
+  margin-top: 0;
+  letter-spacing: .04em;
+}
+
+/* Footer */
+.site-footer {
+  background: rgba(0, 0, 0, 0.88);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.site-footer .inner {
+  padding: 1.25rem 0 1.5rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.footer-links a {
+  color: var(--footer-link);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-size: 11px;
+  margin: 0 .25rem;
+}
+
+.footer-links a+a::before {
+  content: " | ";
+  color: var(--footer-link);
+  margin-right: .5rem;
+}
+
+.footer-info {
+  color: #9a9a9a;
+  font-size: 11px;
+  margin-top: .35rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer-info a {
+  color: #9a9a9a;
+  text-decoration: underline;
+}
+
+/* Utilities */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+}
